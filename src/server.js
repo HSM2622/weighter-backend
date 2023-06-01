@@ -9,7 +9,6 @@ import passport from "passport";
 import passportConfig from "./middlewares/passport";
 import CommunityRouter from "./router/CommunityRouter";
 import PostRouter from "./router/PostRouter";
-const redis = require('redis');
 const redisClient = require('./config/redisConfig');
 const app = express();
 const logger = morgan("dev");
@@ -27,7 +26,7 @@ redisClient.on('connect', function() {
 redisClient.on('error', function (err) {
   console.log('Redis client error:', err);
 });
-redisClient.connect().then();
+redisClient.connect()
 
 //redis
 
