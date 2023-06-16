@@ -4,10 +4,10 @@ import NutritionPlanner from "../models/NutritionPlan";
 const createPlan = async (req, res, next, model) => {
   try {
     const { plan } = req.body;
-    console.log('플랜확인:', plan);
-    console.log('길이 확인:', plan.length);
+    console.log('プラン確認:', plan);
+    console.log('長さ確認:', plan.length);
 
-    // Plan 배열의 각 요소에 대해 DB에 저장
+    // Plan配列の各要素をDBに保存
     for (let i = 0; i < plan.length; i++) {
       const { createdAt } = plan[i];
       let additionalData = {};
@@ -16,7 +16,7 @@ const createPlan = async (req, res, next, model) => {
         const { name, calorie = 0, protein = 0, fat = 0, cho = 0 } = plan[i];
         additionalData = {
           name,
-          calorie: calorie !== null ? calorie : 0, // 혹여 null값이 전달 되도 0이 입력되게 끔
+          calorie: calorie !== null ? calorie : 0, // もしやnull値が渡されても0が入力されるように
           protein: protein !== null ? protein : 0,
           fat: fat !== null ? fat : 0,
           cho: cho !== null ? cho : 0
@@ -69,10 +69,10 @@ export const planCheck = async (req, res, next) => {
 });
 
     if (existingPlan) {
-      // 이미 해당 날짜에 계획이 있는 경우
+      // すでにその日に計画がある場合
       res.status(200).json({ message: `${message} already exists.`, confirm: false });
     } else {
-      // 해당 날짜에 계획이 없는 경우
+      // その日に計画がない場合
       res.status(200).json({ message: `${message} does not exist.`, confirm: true });
     }
   } catch (error) {

@@ -32,11 +32,9 @@ export const createPost = async (req, res, next) => {
       });
     }
 
-    // 이미지 URL 추가하는 코드 만들어야함
-
     console.log(post.dataValues.id);
 
-    return res.status(200).json({ message: "작성 완료" });
+    return res.status(200).json({ message: "作戦完了" });
   } catch (err) {
     console.error(err);
     next();
@@ -73,13 +71,13 @@ export const getPost = async (req, res, next) => {
       console.log(posts);
 
       if (posts.length === 0) {
-        return res.status(200).json({ message: "팔로잉 하는 계정 중 게시글을 올린 계정이 없습니다." });
+        return res.status(200).json({ message: "フォローするアカウントの中に投稿したアカウントがありません。" });
       }
 
       return res.status(200).json({ posts, images });
     }
 
-    return res.status(200).json({ message: "팔로잉 하는 계정 중 게시글을 올린 계정이 없습니다." });
+    return res.status(200).json({ message: "フォローするアカウントの中に投稿したアカウントがありません。" });
   } catch (err) {
     console.error(err);
     next();
@@ -157,10 +155,10 @@ export const deletePost = async (req, res, next) => {
         where: { id: post_id },
       });
     } else {
-      res.status(201).json({ message: "작성자만 삭제할 수 있습니다." });
+      res.status(201).json({ message: "作成者のみ削除ができます。" });
     }
 
-    res.status(200).json({ message: "삭제 완료" });
+    res.status(200).json({ message: "削除完了" });
   } catch (err) {
     console.error(err);
     next();
@@ -178,10 +176,10 @@ export const deleteComment = async (req, res, next) => {
         where: { id },
       });
     } else {
-      res.status(201).json({ message: "작성자만 삭제할 수 있습니다." });
+      res.status(201).json({ message: "作成者のみ削除できます。" });
     }
 
-    res.status(200).json({ message: "삭제 완료" });
+    res.status(200).json({ message: "削除完了" });
   } catch (err) {
     console.error(err);
     next();

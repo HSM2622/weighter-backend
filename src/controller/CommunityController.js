@@ -12,7 +12,7 @@ export const getProfile = async (req, res, next) => {
     });
 
     if (!profile.sns_id) {
-      return res.status(200).json({ message: "SNS 계정이 존재하지 않습니다.", type: "no_account" });
+      return res.status(200).json({ message: "SNSアカウントが存在しません。", type: "no_account" });
     }
 
     const images = await Images.findAll({
@@ -128,7 +128,7 @@ export const getSearch = async (req, res, next) => {
       if (users) {
         return res.status(200).json(users);
       } else {
-        return res.status(200).json({ message: "검색된 결과가 없습니다." });
+        return res.status(200).json({ message: "検索結果がありません。" });
       }
     }
   } catch (err) {
@@ -146,7 +146,7 @@ export const createProfile = async (req, res, next) => {
       },
       { where: { id: req.user.id } }
     );
-    return res.status(200).json("성공");
+    return res.status(200).json("成功");
   } catch (err) {
     console.error(err);
     next();
