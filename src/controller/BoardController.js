@@ -147,7 +147,7 @@ export const updateComment = async(req, res, next) => {
         let {content, id, board_id} = req.body
         if (!board_id || !content || !id)
         return res.status(400).json({ message: '必須値が欠落しています。' });
-        content += " (編集済み)" // 該当コメントが編集されたコメントなのか表示するためのコード
+        content += " (수정됨)" // 該当コメントが編集されたコメントなのか表示するためのコード
         const comment = await Comment.findOne({
             where: {id}
         });

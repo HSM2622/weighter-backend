@@ -5,13 +5,13 @@ module.exports = class User extends Sequelize.Model {
     return super.init(
       {
         id: {
-          // 고유키, INT, 자동 증가
+          // 固有鍵、INT、自動増加
           type: Sequelize.INTEGER,
           autoIncrement: true,
           primaryKey: true,
         },
         email: {
-          // STRING (100자 까지), Email 형식, Null 허용 X
+          // STRING (100文字まで)、Email形式、Null不可
           type: Sequelize.STRING(100),
           validate: {
             isEmail: true,
@@ -19,12 +19,12 @@ module.exports = class User extends Sequelize.Model {
           allowNull: false,
         },
         password: {
-          // STRING (100자까지), Null 허용 X
+          // STRING (100文字まで)、Null不可
           type: Sequelize.STRING(100),
           allowNull: false,
         },
         name: {
-          // STRING (100자까지), Null 허용 X
+          // STRING (100文字まで)、Null不可
           type: Sequelize.STRING(100),
           allowNull: false,
           unique: true,
@@ -34,7 +34,7 @@ module.exports = class User extends Sequelize.Model {
           allowNull: false,
         },
         phone: {
-          // STRING (72자까지), Null 허용 X
+          // STRING (72文字まで)、Null不可
           type: Sequelize.STRING(72),
           allowNull: false,
         },

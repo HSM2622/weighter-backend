@@ -5,13 +5,13 @@ module.exports = class Comment extends Sequelize.Model {
     return super.init(
       {
         id: {
-          // 고유키, INT, 자동 증가
+          // 固有キー、INT、自動増加
           type: Sequelize.INTEGER,
           autoIncrement: true,
           primaryKey: true,
         },
         content: {
-          // TEXT, Null 허용 X
+          // TEXT、Null不可
           type: Sequelize.TEXT,
           allowNull: false,
         },

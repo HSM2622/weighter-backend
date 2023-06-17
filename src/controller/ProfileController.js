@@ -220,7 +220,7 @@ const profileChart = async (req, res, next) => {
       if (category == "nutrition") data = Nutrition;
       else if (category == "nutritionPlan") data = NutritionPlan;
       schema = {
-        time: ["朝", "昼", "夕", "夜"],
+        time: ["아침", "점심", "저녁", "새벽"],
         fields: ["calorie", "cho", "protein", "fat"],
         createdAt: 0,
       };
@@ -228,7 +228,7 @@ const profileChart = async (req, res, next) => {
       if (category == "exercise") data = Motion;
       else if (category == "exercisePlan" || category == "exercisePlanList") data = ExercisePlan;
       schema = {
-        time: ["朝", "昼", "夕", "夜"],
+        time: ["아침", "점심", "저녁", "새벽"],
         fields: ["type", "count", "score", "timer"],
         createdAt: 0,
       };
@@ -255,7 +255,7 @@ const profileChart = async (req, res, next) => {
     // resultはrechartで使われる形式のオブジェクトの配列
     // 以下は空の値の値のオブジェクトフォーマットを作成するプロセス
     result = Array.from({ length: resultLength }, (_, i) => ({
-      time: period === "day" ? schema.time[i] : `${i + 1}${period === "week" || period == "month" ? "日" : "月"}`,
+      time: period === "day" ? schema.time[i] : `${i + 1}${period === "week" || period == "month" ? "일" : "월"}`,
       ...schema.fields.reduce((acc, cur) => ({ ...acc, [cur]: 0 }), {}),
       ...(schema.createdAt !== undefined && { createdAt: 0 }),
     }));

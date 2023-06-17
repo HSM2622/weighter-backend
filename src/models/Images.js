@@ -11,7 +11,6 @@ module.exports = class Images extends Sequelize.Model {
           primaryKey: true,
         },
         type: {
-          // Profile 사진 or Post 사진
           type: Sequelize.STRING(100),
           allowNull: false,
         },
