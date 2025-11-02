@@ -19,11 +19,14 @@
 - プロフィールページにおける統計データ処理ロジック設計・実装
 ## 技術スタック (Tech Stack)
 - バックエンド
-  - Node.js
-  - フロントエンド（Next.js）との言語統一性を最優先し、Node.jsを選択。
+  - Node.js, Express.js
+  - Node.js (Express.js)。フロントエンド（Next.js）との言語統一性を最優先。Express.jsを使い、体系的なミドルウェアを構築。
 - データベース
-  - MySQL
-  - チームメンバーの学習経験と習熟度を考慮し採用。
+  - MySQL, Sequelize
+  - MySQL。Sequelize ORMを使用し、オブジェクト指向的にデータを操作。
+- 認証/セキュリティ
+  - Passport.js, Redis
+  - Passport.js を利用したユーザー認証、Redis を使ったセッション管理を実装。
 - API/ツール
   - OpenAI API, TensorFlow
   - 計画推薦および画像認識機能の実装に使用。
